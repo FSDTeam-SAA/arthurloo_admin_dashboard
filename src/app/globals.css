@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    /* Primary Base (#6466E9) */
+    --primary: 239 75% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Primary Shades */
+    --primary-light: 239 75% 75%;
+    --primary-lighter: 239 75% 85%;
+    --primary-dark: 239 75% 55%;
+    --primary-darker: 239 75% 45%;
+
+    /* Hover & Ring */
+    --primary-hover: 239 75% 70%;
+    --ring: 239 75% 65%;
+  }
+
+  .dark {
+    /* Primary Base adjusted for dark UI */
+    --primary: 239 75% 70%;
+    --primary-foreground: 0 0% 0%;
+
+    --primary-light: 239 75% 80%;
+    --primary-lighter: 239 75% 88%;
+    --primary-dark: 239 75% 60%;
+    --primary-darker: 239 75% 50%;
+
+    --primary-hover: 239 75% 75%;
+    --ring: 239 75% 75%;
+  }
+}
+
+
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }

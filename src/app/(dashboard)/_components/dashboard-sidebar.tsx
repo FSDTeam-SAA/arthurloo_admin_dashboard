@@ -1,0 +1,147 @@
+"use client";
+
+import { LayoutDashboard, LogOut, Settings } from "lucide-react";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+} from "@/components/ui/sidebar";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { signOut } from "next-auth/react";
+import logo from "../../../../public/assets/images/dash_logo.png";
+import LogoutModal from "@/components/modals/logout-modal";
+import { useState } from "react";
+import { toast } from "sonner";
+
+const items = [
+  {
+    title: "Dashboard Overview",
+    url: "/",
+    icon: LayoutDashboard,
+  },
+  // {
+  //   title: "Manage Users",
+  //   url: "/manage-users",
+  //   icon: LayoutDashboard,
+  // },
+  // {
+  //   title: "Payments & Transactions",
+  //   url: "/payment-and-transactions",
+  //   icon: LayoutDashboard,
+  // },
+  // {
+  //   title: "Manage Plan",
+  //   url: "/manage-plan",
+  //   icon: LayoutDashboard,
+  // },
+  // {
+  //   title: "Contact Management",
+  //   url: "/contact-management",
+  //   icon: Mail,
+  // },
+];
+
+export function DashboardSidebar() {
+  const pathName = usePathname();
+  const [logoutModalOpen, setLogoutModalOpen] = useState(false);
+
+  const handLogout = async () => {
+    try {
+      toast.success("Logout successful!");
+      await signOut({ callbackUrl: "/login" });
+    } catch (error) {
+      console.error("Logout failed:", error);
+      toast.error("Logout failed. Please try again.");
+    }
+  };
+
+  return (
+    <div>
+      <Sidebar className="w-[320px] border-none">
+        <SidebarContent className="scrollbar-hide bg-gradient-to-b from-[#3B82F6] to-[#1E3A8A]">
+          <SidebarGroup className="p-0">
+            <div className="flex min-h-screen flex-col justify-between pb-5">
+              <div>
+                <SidebarGroupLabel className="mt-5 mb-5 flex h-[80px] justify-center">
+                  <Link href="/">
+                    <Image
+                      src={logo}
+                      alt="logo"
+                      width={1000}
+                      height={1000}
+                      className="h-[119px] w-[200px] object-cover"
+                    />
+                  </Link>
+                </SidebarGroupLabel>
+
+                <SidebarGroupContent className="px-4 pt-3">
+                  <SidebarMenu>
+                    {items.map((item) => {
+                      const isActive =
+                        item.url === "/"
+                          ? pathName === "/"
+                          : pathName === item.url ||
+                            pathName.startsWith(`${item.url}/`);
+
+                      return (
+                        <SidebarMenuItem key={item.title} className="pb-2">
+                          <SidebarMenuButton
+                            asChild
+                            className={`h-[48px] rounded-[8px] border border-white bg-transparent text-base font-medium leading-normal text-white transition-all duration-300 hover:bg-primary hover:text-white ${
+                              isActive ? "bg-primary" : ""
+                            }`}
+                          >
+                            <Link href={item.url}>
+                              <item.icon className="h-4 w-4" />
+                              <span>{item.title}</span>
+                            </Link>
+                          </SidebarMenuButton>
+                        </SidebarMenuItem>
+                      );
+                    })}
+                  </SidebarMenu>
+                </SidebarGroupContent>
+              </div>
+
+              <SidebarFooter className="px-4">
+                <Link
+                  href="/settings"
+                  className={`flex h-[48px] items-center gap-2 rounded-[8px] border border-white px-4 text-base font-medium leading-normal text-white transition-all duration-300 hover:bg-primary hover:text-white ${
+                    pathName === "/settings" ? "bg-primary" : "bg-transparent"
+                  }`}
+                >
+                  <Settings className="h-4 w-4" />
+                  <span>Settings</span>
+                </Link>
+
+                <button
+                  onClick={() => setLogoutModalOpen(true)}
+                  className="mt-2 flex h-[48px] w-full items-center gap-2 rounded-[8px] border border-white bg-[#FF0000] pl-4 text-base font-normal leading-normal text-white"
+                >
+                  <LogOut className="h-4 w-4" />
+                  <span>Log out</span>
+                </button>
+              </SidebarFooter>
+            </div>
+          </SidebarGroup>
+        </SidebarContent>
+      </Sidebar>
+
+      {logoutModalOpen && (
+        <LogoutModal
+          isOpen={logoutModalOpen}
+          onClose={() => setLogoutModalOpen(false)}
+          onConfirm={handLogout}
+        />
+      )}
+    </div>
+  );
+}
