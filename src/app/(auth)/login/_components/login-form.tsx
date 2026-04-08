@@ -43,7 +43,7 @@ const LoginForm = () => {
     defaultValues: {
       email: "",
       password: "",
-      rememberMe: false,
+      rememberMe: true,
     },
   });
 
@@ -107,7 +107,7 @@ const LoginForm = () => {
           Welcome Back!
         </h3>
         <p className="text-base md:text-lg font-normal text-[#787878] leading-[150%] text-center pt-2">
-          Enter to get unlimited data & information
+          Please enter your email and password to continue
         </p>
         <Form {...form}>
           <form

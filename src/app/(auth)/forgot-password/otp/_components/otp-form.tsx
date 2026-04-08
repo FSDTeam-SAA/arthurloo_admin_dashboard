@@ -158,10 +158,10 @@ export default function OtpForm() {
         </div> */}
 
         <h3 className="text-2xl md:text-[32px] lg:text-[40px] font-bold text-[#131313] text-center leading-[120%] ">
-          Enter OTP
+          Enter Code
         </h3>
          <p className="text-base md:text-lg font-normal text-[#787878] leading-[150%] text-center pt-2 pb-6">
-          An OTP has been sent to your email address <br className="hidden md:block"/> please verify it below
+          Enter the code which you get in your email
         </p>
         {/* OTP Input Fields */}
         <div className="flex gap-[10px] md:gap-5 lg:gap-6 w-full justify-center">
@@ -206,7 +206,7 @@ export default function OtpForm() {
           className="w-full h-[52px] bg-gradient-to-b from-[#414141] to-[#000000] rounded-[8px] py-[15px] px-[151px] text-lg font-semibold  leading-[120%] tracking-[0%] text-[#F4F4F4]"
           disabled={isPending}
         >
-          {isPending ? "Verifying..." : "Verify"}
+          {isPending ? "Verifying..." : "Verify Code"}
         </button>
       </div>
     </div>

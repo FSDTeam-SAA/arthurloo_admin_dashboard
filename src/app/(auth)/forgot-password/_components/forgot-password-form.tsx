@@ -78,7 +78,7 @@ const ForgotPasswordForm = () => {
           Forgot Password
         </h3>
        <p className="text-base md:text-lg font-normal text-[#787878] leading-[150%] text-center pt-2">
-          Please enter the email address linked to your <br className="hidden md:block"/> account. We&apos;ll send a one-time password (OTP) to <br className="hidden md:block"/> your email for verification.
+          Enter your email to reset your password
         </p>
         <Form {...form}>
           <form
