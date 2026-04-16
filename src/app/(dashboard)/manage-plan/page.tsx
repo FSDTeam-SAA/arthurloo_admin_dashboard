@@ -1,17 +1,17 @@
 import React from 'react'
 import DashboardOverviewHeader from '../_components/dashboard-overview-header'
-import ManagePlanContainer from './_components/manage-plan-container'
+import RequestsContainer from './_components/requests-container'
 
-const ManagePlan = () => {
+const RequestsManagement = () => {
   return (
     <div>
-        <DashboardOverviewHeader
-        title="Manage Plan"
-        description="View, upgrade, or modify your current subscription plan"
+      <DashboardOverviewHeader
+        title="Requests Management"
+        description="Welcome back! Here's what's happening with Naturopath.ai today."
       />
-      <ManagePlanContainer/>
+      <RequestsContainer />
     </div>
   )
 }
 
-export default ManagePlan
+export default RequestsManagement
