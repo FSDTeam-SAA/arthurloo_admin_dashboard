@@ -1,17 +1,17 @@
 import React from "react";
-import ContactManagementContainer from "./_components/contact-management-container";
+import ChatManagementContainer from "./_components/chat-management-container";
 import DashboardOverviewHeader from "../_components/dashboard-overview-header";
 
-const ContactManagementPage = () => {
+const ChatManagementPage = () => {
   return (
     <div>
       <DashboardOverviewHeader
-        title="Contact Management"
-        description="Efficiently store, update, and manage your contact information."
+        title="Chat Management"
+        description="Welcome back! Here's what's happening with Naturopath.ai today."
       />
-      <ContactManagementContainer />
+      <ChatManagementContainer />
     </div>
   );
 };
 
-export default ContactManagementPage;
+export default ChatManagementPage;
