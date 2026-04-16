@@ -129,31 +129,30 @@ export default function ChangePasswordForm() {
   }
 
   return (
-    <div className=" p-6">
-      <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-8 bg-[#F8F9FA] border border-[#E6E7E6] shadow-[0px_4px_8px_0px_#0000001F] p-6 rounded-[8px]"
-        >
-          <div className="space-y-6">
-            <div>
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-[#343A40] leading-normal">
-                Changes Password
-              </h2>
-              <p className="text-base font-normal text-[#68706A] leading-normal pt-1">
-                Manage your account preferences, security settings, and privacy
-                options.
-              </p>
-            </div>
+    <Form {...form}>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-6 bg-white shadow-[0px_4px_6px_0px_#0000001A] p-6 rounded-[8px]"
+      >
+        <div className="space-y-5">
+          <div>
+            <h2 className="text-xl md:text-2xl font-semibold text-[#343A40] leading-normal">
+              Changes Password
+            </h2>
+            <p className="text-sm font-normal text-[#6B7280] leading-normal pt-1">
+              Manage your account preferences, security settings, and privacy options.
+            </p>
+          </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Current Password */}
+          {/* Row 1: Current + New (2 columns) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Current Password */}
               <FormField
                 control={form.control}
                 name="currentPassword"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-base font-semibold text-[#343A40] leading-[150%]">
+                    <FormLabel className="text-sm font-semibold text-[#343A40] leading-[150%]">
                       Current Password
                     </FormLabel>
                     <FormControl>
@@ -192,7 +191,7 @@ export default function ChangePasswordForm() {
                 name="newPassword"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-base font-semibold text-[#343A40] leading-[150%]">
+                    <FormLabel className="text-sm font-semibold text-[#343A40] leading-[150%]">
                       New Password
                     </FormLabel>
                     <FormControl>
@@ -223,14 +222,18 @@ export default function ChangePasswordForm() {
                 )}
               />
 
+          </div>
+
+          {/* Row 2: Confirm (half width) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Confirm New Password */}
               <FormField
                 control={form.control}
                 name="confirmNewPassword"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-base font-semibold text-[#343A40] leading-[150%]">
-                      Confirm New Password
+                    <FormLabel className="text-sm font-semibold text-[#343A40] leading-[150%]">
+                      Confirm New  Password
                     </FormLabel>
                     <FormControl>
                       <div className="relative">
@@ -262,7 +265,6 @@ export default function ChangePasswordForm() {
                   </FormItem>
                 )}
               />
-            </div>
           </div>
 
           {/*  Password requirements list */}
@@ -369,8 +371,8 @@ export default function ChangePasswordForm() {
               {isPending ? "Saving..." : "Save Changes"}
             </Button>
           </div>
-        </form>
-      </Form>
-    </div>
+        </div>
+      </form>
+    </Form>
   );
 }
