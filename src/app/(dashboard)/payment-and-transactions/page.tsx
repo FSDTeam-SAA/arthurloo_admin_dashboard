@@ -1,19 +1,17 @@
 import React from 'react'
 import DashboardOverviewHeader from '../_components/dashboard-overview-header'
-import PaymentAndTransactionsContainer from './_components/payment-and-transactions-container'
-import { PaymentOverview } from './_components/payment-overview'
+import ReportsContainer from './_components/reports-container'
 
-const PaymentAndTransactions = () => {
+const ReportsManagement = () => {
   return (
     <div>
-        <DashboardOverviewHeader
-        title="Payments & Transactions "
-        description="Seamlessly handle payments and gain full visibility into every transaction."
+      <DashboardOverviewHeader
+        title="Reports Management"
+        description="Welcome back! Here's what's happening with Naturopath.ai today."
       />
-      <PaymentOverview/>
-      <PaymentAndTransactionsContainer/>
+      <ReportsContainer />
     </div>
   )
 }
 
-export default PaymentAndTransactions
+export default ReportsManagement

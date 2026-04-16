@@ -1,14 +1,24 @@
 import React from "react";
 
-const DashboardOverviewHeader = ({title, description}:{title: string, description:string}) => {
+const DashboardOverviewHeader = ({ title, description }: { title: string, description: string }) => {
   return (
     <div className="sticky top-0  z-50">
       {/* Header */}
-      <div className="bg-[#E9EBF3] p-6 ">
-        <h1 className="text-2xl lg:text-3xl font-bold text-primary leading-normal">
+      <div className="p-6" style={{ background: "#AC3AD41A" }}>
+        <h1
+          className="text-primary"
+          style={{
+            fontFamily: "Manrope",
+            fontWeight: 700,
+            fontStyle: "normal",
+            fontSize: "24px",
+            lineHeight: "150%",
+            letterSpacing: "0%"
+          }}
+        >
           {title}
         </h1>
-        <p className="text-sm font-normal text-primary leading-normal">
+        <p className="text-sm font-normal text-primary leading-normal mt-1">
           {description}
         </p>
       </div>

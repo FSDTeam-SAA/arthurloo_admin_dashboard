@@ -61,8 +61,8 @@ const MireyagsPagination: React.FC<PaginationProps> = ({
   }
 
   return (
-    <Pagination className="">
-      <PaginationContent className="flex items-center justify-end gap-2">
+    <Pagination className="mx-0 w-auto justify-end">
+      <PaginationContent className="flex items-center gap-2">
         <PaginationItem>
           <PaginationLink
             onClick={() => {
